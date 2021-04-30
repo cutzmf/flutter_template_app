@@ -1,17 +1,12 @@
 import 'package:flutter/widgets.dart';
 
 import '../../home/home.dart';
+import 'route_info.dart';
 
-class RouteInfo {}
+final _key = GlobalKey<NavigatorState>();
 
-class NavigationImpl extends RouterDelegate<RouteInfo>
-    with PopNavigatorRouterDelegateMixin<RouteInfo>
-    implements RouteInformationParser<RouteInfo> {
-  static final _key = GlobalKey<NavigatorState>();
-
-  @override
-  GlobalKey<NavigatorState>? get navigatorKey => _key;
-
+class NavRouterDelegate extends RouterDelegate<RouteInfo>
+    with PopNavigatorRouterDelegateMixin<RouteInfo> {
   @override
   Widget build(BuildContext context) {
     return Navigator(
@@ -35,11 +30,8 @@ class NavigationImpl extends RouterDelegate<RouteInfo>
   }
 
   @override
-  Future<RouteInfo> parseRouteInformation(
-    RouteInformation routeInformation,
-  ) async {
-    return RouteInfo();
-  }
+  // TODO: implement navigatorKey
+  GlobalKey<NavigatorState>? get navigatorKey => _key;
 
   @override
   void removeListener(VoidCallback listener) {
@@ -47,14 +39,7 @@ class NavigationImpl extends RouterDelegate<RouteInfo>
   }
 
   @override
-  RouteInformation? restoreRouteInformation(RouteInfo configuration) {
-    // TODO: implement restoreRouteInformation
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<void> setNewRoutePath(RouteInfo configuration) {
+  Future<void> setNewRoutePath(RouteInfo configuration) async {
     // TODO: implement setNewRoutePath
-    throw UnimplementedError();
   }
 }
