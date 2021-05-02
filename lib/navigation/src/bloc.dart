@@ -13,7 +13,6 @@ class NavigationBloc extends Cubit<List<Page>> implements HomeTapsHandler {
   }
 
   void onPopPage(Route route) {
-    print('${state.remove(route.settings)}');
-    emit(List.of(state));
+    emit(List.of(state..remove(route.settings)));
   }
 }

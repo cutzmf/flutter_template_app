@@ -16,7 +16,6 @@ class NavRouterDelegate extends RouterDelegate<RouteInfo>
     return BlocBuilder<NavigationBloc, List<Page>>(
       bloc: bloc,
       builder: (context, pages) {
-        print('NOW $pages');
         return Navigator(
           key: navigatorKey,
           pages: [
