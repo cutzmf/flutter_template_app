@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 import 'navigation/navigation.dart';
@@ -22,6 +23,7 @@ class OverallDependencies extends StatelessWidget {
         ListenableProvider<RouterDelegate<Object>>(
           create: (_) => NavRouterDelegate(),
         ),
+        BlocProvider(create: (_) => NavigationBloc()),
       ],
       child: child,
     );

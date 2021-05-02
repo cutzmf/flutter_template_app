@@ -12,7 +12,8 @@ class NavigationBloc extends Cubit<List<Page>> implements HomeTapsHandler {
     emit(List.of(state..add(ProfilePage())));
   }
 
-  void onPopPage(Route route) {
+  bool onPopPage(Route<dynamic> route, dynamic result) {
     emit(List.of(state..remove(route.settings)));
+    return route.isFirst ? false : route.didPop(result);
   }
 }

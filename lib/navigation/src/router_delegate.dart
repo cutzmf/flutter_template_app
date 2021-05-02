@@ -9,23 +9,18 @@ final _key = GlobalKey<NavigatorState>();
 
 class NavRouterDelegate extends RouterDelegate<RouteInfo>
     with PopNavigatorRouterDelegateMixin<RouteInfo> {
-  final bloc = NavigationBloc();
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NavigationBloc, List<Page>>(
-      bloc: bloc,
       builder: (context, pages) {
+        final bloc = context.read<NavigationBloc>();
         return Navigator(
           key: navigatorKey,
           pages: [
             HomePage(bloc),
             ...pages,
           ],
-          onPopPage: (route, result) {
-            bloc.onPopPage(route);
-            return route.isFirst ? false : route.didPop(result);
-          },
+          onPopPage: bloc.onPopPage,
         );
       },
     );
