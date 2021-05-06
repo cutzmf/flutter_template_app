@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'src/content.dart';
 
 class HomePage extends MaterialPage {
-  HomePage(HomeTapsHandler tapsHandler)
-      : super(child: HomeContent(tapsHandler: tapsHandler));
+  HomePage(HomeDependecies tapsHandler)
+      : super(child: HomeContent(dependencies: tapsHandler));
 }
 
-abstract class HomeTapsHandler {
+abstract class HomeDependecies {
   void onFab();
 }

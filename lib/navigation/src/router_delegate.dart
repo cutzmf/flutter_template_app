@@ -1,26 +1,24 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../home/home.dart';
 import '../navigation.dart';
 import 'route_info.dart';
 
 final _key = GlobalKey<NavigatorState>();
 
-class NavRouterDelegate extends RouterDelegate<RouteInfo>
-    with PopNavigatorRouterDelegateMixin<RouteInfo> {
+class NavRouterDelegate extends RouterDelegate<RouteInfo> with PopNavigatorRouterDelegateMixin<RouteInfo> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NavigationBloc, List<Page>>(
+    return BlocBuilder<NavigationCubit, List<Page>>(
       builder: (context, pages) {
-        final bloc = context.read<NavigationBloc>();
+        final cubit = context.read<NavigationCubit>();
         return Navigator(
           key: navigatorKey,
           pages: [
-            HomePage(bloc),
+            cubit.initialPage,
             ...pages,
           ],
-          onPopPage: bloc.onPopPage,
+          onPopPage: cubit.onPopPage,
         );
       },
     );

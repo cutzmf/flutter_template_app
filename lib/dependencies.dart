@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
+import 'data/data.dart';
 import 'navigation/navigation.dart';
 
 class _Bind<T extends R, R> extends Provider<R> {
@@ -23,7 +24,8 @@ class OverallDependencies extends StatelessWidget {
         ListenableProvider<RouterDelegate<Object>>(
           create: (_) => NavRouterDelegate(),
         ),
-        BlocProvider(create: (_) => NavigationBloc()),
+        Provider(create: (_) => ProfileRepoHttp()),
+        BlocProvider(create: (context) => NavigationCubit(context.read)),
       ],
       child: child,
     );

@@ -5,9 +5,9 @@ import '../home.dart';
 import 'strings.dart';
 
 class HomeContent extends StatelessWidget {
-  final HomeTapsHandler tapsHandler;
+  final HomeDependecies dependencies;
 
-  HomeContent({required this.tapsHandler, Key? key}) : super(key: key);
+  HomeContent({required this.dependencies, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class HomeContent extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: tapsHandler.onFab),
+      floatingActionButton: FloatingActionButton(onPressed: dependencies.onFab),
     );
   }
 }
