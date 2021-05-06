@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
+import 'application/dependencies.dart';
+import 'application/splash.dart';
 import 'common/common.dart';
-import 'dependencies.dart';
-import 'splash.dart';
 
 void main() {
   runApp(

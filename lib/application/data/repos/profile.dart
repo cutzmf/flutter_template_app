@@ -1,4 +1,4 @@
-import '../../profile/profile.dart';
+import '../../../profile/profile.dart';
 
 class ProfileRepoHttp implements ProfileRepo {
   @override

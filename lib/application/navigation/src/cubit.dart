@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../home/home.dart';
-import '../../profile/profile.dart';
+import '../../../home/home.dart';
+import '../../../profile/profile.dart';
 
 typedef DependencyResolver = T Function<T>();
 

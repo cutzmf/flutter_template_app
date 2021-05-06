@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
+import '../profile/profile.dart';
 import 'data/data.dart';
 import 'navigation/navigation.dart';
 
@@ -18,13 +19,11 @@ class OverallDependencies extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<RouteInformationParser<Object>>(
-          create: (_) => NavRouteInformationParser(),
-        ),
-        ListenableProvider<RouterDelegate<Object>>(
-          create: (_) => NavRouterDelegate(),
-        ),
+        Provider(create: (_) => NavRouteInformationParser()),
+        _Bind<NavRouteInformationParser, RouteInformationParser<Object>>(),
+        ListenableProvider<RouterDelegate<Object>>(create: (_) => NavRouterDelegate()),
         Provider(create: (_) => ProfileRepoHttp()),
+        _Bind<ProfileRepoHttp, ProfileRepo>(),
         BlocProvider(create: (context) => NavigationCubit(context.read)),
       ],
       child: child,
