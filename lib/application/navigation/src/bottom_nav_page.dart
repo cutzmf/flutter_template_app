@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../home/home.dart';
 import '../../../profile/profile.dart';
 import '../navigation.dart';
+import 'delegates/home_page_nav_delegate.dart';
 
 class BottomNavigationPage extends MaterialPage {
   BottomNavigationPage(NavigationCubit cubit, ProfileRepo profileRepo)
@@ -17,7 +18,7 @@ class BottomNavigationPage extends MaterialPage {
                   return IndexedStack(
                     index: state.bottomIndex,
                     children: [
-                      HomePage(cubit.homeTapsHandler).child,
+                      HomePage(HomeNavigationDelegate(cubit)).child,
                       ProfilePage(profileRepo).child,
                     ],
                   );

@@ -1,9 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../../home/home.dart';
-import '../../../profile/profile.dart';
-
 typedef DependencyResolver = T Function<T>();
 
 class NavigationState {
@@ -39,10 +36,6 @@ class NavigationCubit extends Cubit<NavigationState> {
 
   final DependencyResolver dependencyResolver;
 
-  late final homeTapsHandler = HomeDependenciesDelegate(this);
-
-  late final initialPage = HomePage(homeTapsHandler);
-
   void onBottomHome() => emit(state.copyWith(bottomIndex: 0));
 
   void onBottomProfile() => emit(state.copyWith(bottomIndex: 1));
@@ -54,13 +47,4 @@ class NavigationCubit extends Cubit<NavigationState> {
     emit(state.copyWith(pages: updatesPages));
     return route.isFirst ? false : route.didPop(result);
   }
-}
-
-class HomeDependenciesDelegate implements HomeDependencies {
-  final NavigationCubit navigationCubit;
-
-  HomeDependenciesDelegate(this.navigationCubit);
-
-  @override
-  void onFab() => navigationCubit.push(ProfilePage(navigationCubit.dependencyResolver()));
 }
