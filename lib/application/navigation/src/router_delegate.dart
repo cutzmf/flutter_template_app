@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_template_app/application/data/data.dart';
 
 import '../navigation.dart';
+import 'bottom_nav_page.dart';
 import 'route_info.dart';
 
 final _key = GlobalKey<NavigatorState>();
@@ -15,7 +18,7 @@ class NavRouterDelegate extends RouterDelegate<RouteInfo> with PopNavigatorRoute
         return Navigator(
           key: navigatorKey,
           pages: [
-            cubit.initialPage,
+            BottomNavigationPage(cubit, context.read<ProfileRepoHttp>()),
             ...pages,
           ],
           onPopPage: cubit.onPopPage,
