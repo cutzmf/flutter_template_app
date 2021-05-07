@@ -11,11 +11,17 @@ class BottomNavigationPage extends MaterialPage {
           child: BlocProvider.value(
             value: cubit,
             child: Scaffold(
-              body: IndexedStack(
-                children: [
-                  HomePage(cubit.homeTapsHandler).child,
-                  ProfilePage(profileRepo).child,
-                ],
+              body: BlocBuilder<NavigationCubit, NavigationState>(
+                bloc: cubit,
+                builder: (context, state) {
+                  return IndexedStack(
+                    index: state.bottomIndex,
+                    children: [
+                      HomePage(cubit.homeTapsHandler).child,
+                      ProfilePage(profileRepo).child,
+                    ],
+                  );
+                },
               ),
               bottomNavigationBar: SizedBox(
                 height: 80,
@@ -24,11 +30,11 @@ class BottomNavigationPage extends MaterialPage {
                   children: [
                     IconButton(
                       icon: const Icon(Icons.fire_extinguisher),
-                      onPressed: () {},
+                      onPressed: cubit.onBottomHome,
                     ),
                     IconButton(
                       icon: const Icon(Icons.person_outline_rounded),
-                      onPressed: () {},
+                      onPressed: cubit.onBottomProfile,
                     ),
                   ],
                 ),
