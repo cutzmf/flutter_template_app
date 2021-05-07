@@ -56,7 +56,7 @@ class NavigationCubit extends Cubit<NavigationState> {
   }
 }
 
-class HomeDependenciesDelegate implements HomeDependecies {
+class HomeDependenciesDelegate implements HomeDependencies {
   final NavigationCubit navigationCubit;
 
   HomeDependenciesDelegate(this.navigationCubit);

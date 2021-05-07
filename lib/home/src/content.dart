@@ -5,7 +5,7 @@ import '../home.dart';
 import 'strings.dart';
 
 class HomeContent extends StatelessWidget {
-  final HomeDependecies dependencies;
+  final HomeDependencies dependencies;
 
   HomeContent({required this.dependencies, Key? key}) : super(key: key);
 
