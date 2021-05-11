@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../home.dart';
-import 'strings.dart';
 
 class HomeContent extends StatelessWidget {
   final HomeDependencies dependencies;
@@ -20,7 +18,7 @@ class HomeContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(S.hiThere),
+            Text(Localizations.of<Strings>(context, Strings)!.hiThere),
           ],
         ),
       ),

@@ -1,3 +1,3 @@
-class S {
-  static String get hiThere => 'Hi there! Welcome home!';
+abstract class Strings {
+  String get hiThere;
 }
