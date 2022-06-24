@@ -1,10 +1,14 @@
 import '../../../home/home.dart';
-import '../src/app_localizations.dart';
+import '../l10n.dart';
 
-class HomeMappedStrings implements Strings {
+class HomeL10nDelegate extends MapDelegate<Strings> {
+  HomeL10nDelegate() : super(_Strings.new);
+}
+
+class _Strings implements Strings {
+  _Strings(this.appLocalizations);
+
   final AppLocalizations appLocalizations;
-
-  HomeMappedStrings(this.appLocalizations);
 
   @override
   String get hiThere => appLocalizations.hiThere;

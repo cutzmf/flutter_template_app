@@ -1,7 +1,6 @@
 /// GENERATED CODE. DO NOT EDIT MANUALLY!
 import 'dart:async';
 
-// ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -64,7 +63,6 @@ import 'app_localizations_ru.dart';
 abstract class AppLocalizations {
   AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
-  // ignore: unused_field
   final String localeName;
 
   static AppLocalizations? of(BuildContext context) {
@@ -114,7 +112,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
 
   @override
   Future<AppLocalizations> load(Locale locale) {
-    return SynchronousFuture<AppLocalizations>(_lookupAppLocalizations(locale));
+    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
   }
 
   @override
@@ -124,16 +122,14 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
-AppLocalizations _lookupAppLocalizations(Locale locale) {
-  
+AppLocalizations lookupAppLocalizations(Locale locale) {
 
 
-// Lookup logic when only language code is specified.
-switch (locale.languageCode) {
-  case 'en': return AppLocalizationsEn();
+  // Lookup logic when only language code is specified.
+  switch (locale.languageCode) {
+    case 'en': return AppLocalizationsEn();
     case 'ru': return AppLocalizationsRu();
-}
-
+  }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '

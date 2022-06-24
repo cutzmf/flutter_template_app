@@ -6,7 +6,6 @@ import 'application/dependencies.dart';
 import 'application/l10n/l10n.dart';
 import 'application/splash.dart';
 import 'common/common.dart';
-import 'home/home.dart' as home;
 
 void main() {
   runApp(
@@ -24,7 +23,7 @@ void main() {
               supportedLocales: AppLocalizations.supportedLocales,
               localizationsDelegates: [
                 ...AppLocalizations.localizationsDelegates,
-                MapDelegate<home.Strings>((all) => HomeMappedStrings(all)),
+                HomeL10nDelegate(),
               ],
             );
           },
